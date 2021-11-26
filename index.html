@@ -1,8 +1,125 @@
 <html>
-<title>
-</title>
-<body>
-<h1>Test Header</h1>
-<p>Test Paragraph</p>
-</body>
+
+    <head>
+        <title>Zulrah Trainer</title>
+
+        <link rel='stylesheet' href='./css/styles.css'>
+    </head>
+
+    <body class='align-center'>
+        <button id='btnSeeRotations' class='button'>See Rotations</button>
+        <button id='btnReset' class='button'>Reset</button>
+
+        <div class="flex-container">
+
+            <div id='divLeftPanel' class="flex-child">
+                <h3>FULL ROTATION</h3>
+                <hr/>
+
+                <div id='divRotationProgress'>
+
+                </div>
+            </div>
+    
+            <div id='divRightPanel' class="flex-child">
+                <h5 class='red zeroMargin'>PHASE 1 is the same for all rotations so it's skipped here</h5>
+                <h3 id='currentPhase'>PHASE 2</h3>
+                <hr/>
+
+                <div id='divCurrentPhase'>
+                    
+                </div>
+
+                <h3>NEXT PHASE</h3>
+                <hr/>
+
+                <div id='divNextPhase'>
+                    <div>
+                        <img class='stackedImg' src="./images/base_question.png">
+                    </div>
+                </div>
+
+                <h3 id='incorrectMessage' class='red hidden'>INCORRECT: Try again!</h3>
+
+                <div id='divOptionPicker'>
+
+                    <div id='divZulrahType'>
+                        <h3>Zulrah Type</h3>
+                        <img id='green' class='borderedImg' src="./images/zulrah_green.png">
+                        <img id='blue' class='borderedImg' src="./images/zulrah_blue.png">
+                        <img id='red' class='borderedImg' src="./images/zulrah_red.png">
+                        <img id='jad' class='borderedImg' src="./images/zulrah_jad.png">
+                    </div>
+
+                    <div id='divZulrahSpot' class='hidden'>
+                        <h3>Player Location</h3>
+                        <img id='left' class='borderedImg' src="./images/zulrah_spot_side.png">
+                        <img id='top' class='borderedImg' src="./images/zulrah_spot_top.png">
+                        <img id='middle' class='borderedImg' src="./images/zulrah_spot_middle.png">
+                        <img id='right' flipped=1 class='borderedImg' src="./images/zulrah_spot_side.png">
+                    </div>
+
+                    <div id='divPlayerSpot' class='hidden'>
+                        <h3>Player Location</h3>
+                        <img id='bottom_left' class='borderedImg' src="./images/movement_bottom.png">
+                        <img id='corner_left' class='borderedImg' src="./images/movement_corner.png">
+                        <img id='middle' class='borderedImg' src="./images/movement_top.png">
+                        <img id='corner_right' flipped=1 class='borderedImg' src="./images/movement_corner.png">
+                        <img id='bottom_right' flipped=1 class='borderedImg' src="./images/movement_bottom.png">
+                    </div>
+
+                    <div id='divNeededPrayer' class='hidden'>
+                        <h3>Needed Prayer</h3>
+                        <img id='ranged' class='borderedImg' src="./images/prayer_ranged.png">
+                        <img id='mage' class='borderedImg' src="./images/prayer_mage.png">
+                        <img id='ranged_into_mage' class='borderedImg' src="./images/prayer_ranged_into_mage.png">
+                        <img id='mage_into_ranged' class='borderedImg' src="./images/prayer_mage_into_ranged.png">
+                        <img id='not_applicable' class='borderedImg' src="./images/not_applicable.png">
+                    </div>
+
+                </div>
+
+                <div id='divStartNextRotation' class='hidden'>
+                    <h3>Click below to start a new rotation</h3>
+                    <button id='btnNextRotation' class='button'>Next</button>
+                </div>
+
+            </div>
+
+            <div id='divRightPanelRotations' class="flex-child hidden">
+    
+                <div>
+                    <div id='rotation_a' class='inline-block'>
+                        <h3>A</h3>
+                        <img class='stackedImg' src="./images/green_corner_middle.png">
+                        <img class='stackedImg' src="./images/green_corner_left.png">
+                        <img class='stackedImg' src="./images/green_corner_top.png">
+                    </div>
+                    <div id='rotation_b' class='inline-block'>
+                        <h3>B</h3>
+                        <img class='stackedImg' src="./images/green_corner_middle.png">
+                        <img class='stackedImg' src="./images/green_corner_left.png">
+                        <img class='stackedImg' src="./images/green_corner_top.png">
+                    </div>
+                    <div id='rotation_c' class='inline-block'>
+                        <h3>C</h3>
+                        <img class='stackedImg' src="./images/green_corner_middle.png">
+                        <img class='stackedImg' src="./images/green_corner_left.png">
+                        <img class='stackedImg' src="./images/green_corner_top.png">
+                    </div>
+                    <div id='rotation_d' class='inline-block'>
+                        <h3>D</h3>
+                        <img class='stackedImg' src="./images/green_corner_middle.png">
+                        <img class='stackedImg' src="./images/green_corner_left.png">
+                        <img class='stackedImg' src="./images/green_corner_top.png">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="./js/index.js"></script>
+    </body>
+
 </html>
