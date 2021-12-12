@@ -4,15 +4,15 @@ const hiddenClassName = 'hidden'
 const optionStates = {
     ZULRAH: 'divZulrahType',
     ZULRAH_SPOT: 'divZulrahSpot',
-    MOVE: 'divPlayerSpot',
-    PRAYER: 'divNeededPrayer'
+    MOVE: 'divPlayerSpot'
 }
 
 const zulrahTypes = {
     RED: 'red',
     GREEN: 'green',
     BLUE: 'blue',
-    JAD: 'jad'
+    JAD_RANGED: 'jad_ranged',
+    JAD_MAGE: 'jad_mage'
 }
 
 const zulrahSpots = {
@@ -30,21 +30,13 @@ const playerSpots = {
     BOTTOM_RIGHT: 'bottom_right'
 }
 
-const prayers = {
-    RANGED: 'ranged',
-    MAGE: 'mage',
-    RANGED_INTO_MAGE: 'ranged_into_mage',
-    MAGE_INTO_RANGED: 'mage_into_ranged',
-    NOT_APPLICABLE: 'not_applicable',
-}
-
 /* Each object holds: 
 [   pathOfImageOfPhase, 
     imageFlipped, 
     zulrahType, 
     zulrahLocation, 
-    playerLocation, 
-    prayerNeeded ]
+    playerLocation
+]
 */
 const phases = {
     //RED - MIDDLE
@@ -53,32 +45,28 @@ const phases = {
         false,
         zulrahTypes.RED,
         zulrahSpots.MIDDLE,
-        playerSpots.BOTTOM_LEFT,
-        prayers.NOT_APPLICABLE,
+        playerSpots.BOTTOM_LEFT
     ],
     RED_BOTTOMRIGHT_MIDDLE: [
         './images/red_bottom.png',
         true,
         zulrahTypes.RED,
         zulrahSpots.MIDDLE,
-        playerSpots.BOTTOM_RIGHT,
-        prayers.NOT_APPLICABLE,
+        playerSpots.BOTTOM_RIGHT
     ],
     RED_CORNERLEFT_MIDDLE: [
         './images/red_corner.png',
         false,
         zulrahTypes.RED,
         zulrahSpots.MIDDLE,
-        playerSpots.CORNER_LEFT,
-        prayers.NOT_APPLICABLE,
+        playerSpots.CORNER_LEFT
     ],
     RED_CORNERRIGHT_MIDDLE: [
         './images/red_corner.png',
         true,
         zulrahTypes.RED,
         zulrahSpots.MIDDLE,
-        playerSpots.CORNER_RIGHT,
-        prayers.NOT_APPLICABLE,
+        playerSpots.CORNER_RIGHT
     ],
 
     //GREEN - MIDDLE
@@ -87,24 +75,21 @@ const phases = {
         false,
         zulrahTypes.GREEN,
         zulrahSpots.MIDDLE,
-        playerSpots.BOTTOM_LEFT,
-        prayers.RANGED,
+        playerSpots.BOTTOM_LEFT
     ],
     GREEN_BOTTOMRIGHT_MIDDLE: [
         './images/green_bottom_middle.png',
         true,
         zulrahTypes.GREEN,
         zulrahSpots.MIDDLE,
-        playerSpots.BOTTOM_RIGHT,
-        prayers.RANGED,
+        playerSpots.BOTTOM_RIGHT
     ],
     GREEN_CORNERRIGHT_MIDDLE: [
         './images/green_corner_middle.png',
         true,
         zulrahTypes.GREEN,
         zulrahSpots.MIDDLE,
-        playerSpots.CORNER_RIGHT,
-        prayers.RANGED,
+        playerSpots.CORNER_RIGHT
     ],
 
     //GREEN - TOP
@@ -113,24 +98,21 @@ const phases = {
         true,
         zulrahTypes.GREEN,
         zulrahSpots.TOP,
-        playerSpots.CORNER_RIGHT,
-        prayers.RANGED,
+        playerSpots.CORNER_RIGHT
     ],
     GREEN_CORNERLEFT_TOP: [
         './images/green_corner_top.png',
         false,
         zulrahTypes.GREEN,
         zulrahSpots.TOP,
-        playerSpots.CORNER_LEFT,
-        prayers.RANGED,
+        playerSpots.CORNER_LEFT
     ],
     GREEN_MIDDLE_TOP: [
         './images/green_top_top.png',
         false,
         zulrahTypes.GREEN,
         zulrahSpots.TOP,
-        playerSpots.MIDDLE,
-        prayers.RANGED,
+        playerSpots.MIDDLE
     ],
 
     //GREEN - LEFT
@@ -139,16 +121,14 @@ const phases = {
         false,
         zulrahTypes.GREEN,
         zulrahSpots.LEFT,
-        playerSpots.CORNER_LEFT,
-        prayers.RANGED,
+        playerSpots.CORNER_LEFT
     ],
     GREEN_BOTTOMLEFT_LEFT: [
         './images/green_bottom_left.png',
         false,
         zulrahTypes.GREEN,
         zulrahSpots.LEFT,
-        playerSpots.BOTTOM_LEFT,
-        prayers.RANGED,
+        playerSpots.BOTTOM_LEFT
     ],
 
     //GREEN - RIGHT
@@ -157,16 +137,14 @@ const phases = {
         true,
         zulrahTypes.GREEN,
         zulrahSpots.RIGHT,
-        playerSpots.CORNER_RIGHT,
-        prayers.RANGED,
+        playerSpots.CORNER_RIGHT
     ],
     GREEN_BOTTOMRIGHT_RIGHT: [
         './images/green_bottom_right_ranged.png',
         false,
-        zulrahTypes.JAD,
+        zulrahTypes.JAD_RANGED,
         zulrahSpots.RIGHT,
-        playerSpots.BOTTOM_RIGHT,
-        prayers.RANGED_INTO_MAGE,
+        playerSpots.BOTTOM_RIGHT
     ],
 
     //BLUE - MIDDLE
@@ -175,24 +153,21 @@ const phases = {
         true,
         zulrahTypes.BLUE,
         zulrahSpots.MIDDLE,
-        playerSpots.CORNER_RIGHT,
-        prayers.MAGE,
+        playerSpots.CORNER_RIGHT
     ],
     BLUE_BOTTOMLEFT_MIDDLE: [
         './images/blue_bottom_middle.png',
         false,
         zulrahTypes.BLUE,
         zulrahSpots.MIDDLE,
-        playerSpots.BOTTOM_LEFT,
-        prayers.MAGE,
+        playerSpots.BOTTOM_LEFT
     ],
     BLUE_BOTTOMLEFT_MIDDLE_PRAY: [
         './images/blue_bottom_middle_mage.png',
         false,
-        zulrahTypes.JAD,
+        zulrahTypes.JAD_MAGE,
         zulrahSpots.MIDDLE,
-        playerSpots.BOTTOM_LEFT,
-        prayers.MAGE_INTO_RANGED,
+        playerSpots.BOTTOM_LEFT
     ],
 
     //BLUE - TOP
@@ -201,8 +176,7 @@ const phases = {
         true,
         zulrahTypes.BLUE,
         zulrahSpots.TOP,
-        playerSpots.CORNER_RIGHT,
-        prayers.MAGE,
+        playerSpots.CORNER_RIGHT
     ],
 
     //BLUE - LEFT
@@ -211,16 +185,14 @@ const phases = {
         false,
         zulrahTypes.BLUE,
         zulrahSpots.LEFT,
-        playerSpots.CORNER_LEFT,
-        prayers.MAGE,
+        playerSpots.CORNER_LEFT
     ],
     BLUE_BOTTOMLEFT_LEFT: [
         './images/blue_bottom_left.png',
         false,
         zulrahTypes.BLUE,
         zulrahSpots.LEFT,
-        playerSpots.BOTTOM_LEFT,
-        prayers.MAGE,
+        playerSpots.BOTTOM_LEFT
     ],
 
     //BLUE - RIGHT
@@ -229,9 +201,8 @@ const phases = {
         true,
         zulrahTypes.BLUE,
         zulrahSpots.RIGHT,
-        playerSpots.CORNER_RIGHT,
-        prayers.MAGE,
-    ],
+        playerSpots.CORNER_RIGHT
+    ]
 }
 
 const rotations = {
@@ -294,8 +265,7 @@ const rotations = {
 let chosenOptions = {
     ZULRAH: '',
     ZULRAH_SPOT: '',
-    MOVE: '',
-    PRAYER: '',
+    MOVE: ''
 }
 
 let optionState = optionStates.ZULRAH
@@ -319,12 +289,8 @@ const moveToNextOption = (id) => {
         chosenOptions.ZULRAH_SPOT = id
     }
     else if (optionState == optionStates.MOVE) {
-        optionState = optionStates.PRAYER
-        chosenOptions.MOVE = id
-    }
-    else if (optionState == optionStates.PRAYER) {
         optionState = optionStates.ZULRAH
-        chosenOptions.PRAYER = id
+        chosenOptions.MOVE = id
     }
 }
 
@@ -336,8 +302,6 @@ const changeCurrentOption = (parentId, id) => {
         chosenOptions.ZULRAH_SPOT = id
     else if (parentId == optionStates.MOVE)
         chosenOptions.MOVE = id
-    else if (parentId == optionStates.PRAYER)
-        chosenOptions.PRAYER = id
 }
 
 //Updates the image of the current phase, adds the current phase to the progress panel, and updates the phase
@@ -444,7 +408,6 @@ const resetChosenOptions = () => {
     chosenOptions.ZULRAH = ''
     chosenOptions.ZULRAH_SPOT = ''
     chosenOptions.MOVE = ''
-    chosenOptions.PRAYER = ''
 }
 
 //Once an option is selected, the selection will be saved and a new section of options will appear
@@ -459,7 +422,7 @@ const pickOption = (parentId, element) => {
     if (parentId == optionState) {
 
         //If the player selects the prayer option - that is when it will tell the player whether it was right or not
-        if (optionState === optionStates.PRAYER) {
+        if (optionState === optionStates.MOVE) {
             moveToNextOption(element.id)
 
             //Check if the selections were correct compared to the next phase
@@ -497,8 +460,7 @@ const checkIfCorrectOptions = () => {
         if (
             currentPhase[2] == chosenOptions.ZULRAH &&
             currentPhase[3] == chosenOptions.ZULRAH_SPOT &&
-            currentPhase[4] == chosenOptions.MOVE &&
-            currentPhase[5] == chosenOptions.PRAYER
+            currentPhase[4] == chosenOptions.MOVE
         )
             return true
     }
