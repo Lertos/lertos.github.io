@@ -401,7 +401,7 @@ const addSectionEventListeners = (id) => {
 }
 
 //Resets all option sections back to their default state; bordered and unselected
-const resetAll = () => {
+const resetAll = (letter = null) => {
     resetOptionPanel()
     
     //Reset the progress panel
@@ -412,7 +412,12 @@ const resetAll = () => {
 
     //Reset the current data
     optionState = optionStates.ZULRAH
-    currentRotation = rotations[Object.keys(rotations)[Math.floor(Math.random() * 4)]]
+
+    if (letter)
+        currentRotation = getRotationByLetter(letter)
+    else
+        currentRotation = rotations[Object.keys(rotations)[Math.floor(Math.random() * 4)]]
+    
     currentPhaseCounter = 0
     currentPhase = currentRotation[currentPhaseCounter]
 
@@ -527,6 +532,17 @@ const addPhaseToRotationProgressPanel = () => {
         progressPanel.innerHTML += '<img class="stackedImg" src="' + currentPhase[0] + '">'
 }
 
+const getRotationByLetter = (letter) => {
+    if (letter == 'A')
+        return rotations.ROTATION_A
+    else if (letter == 'B')
+        return rotations.ROTATION_B
+    else if (letter == 'C')
+        return rotations.ROTATION_C
+    else if (letter == 'D')
+        return rotations.ROTATION_D
+}
+
 
 /* ------------------------------------
     Adding event listeners
@@ -553,6 +569,13 @@ document.querySelector('#btnSeeRotations').addEventListener("click", (e) => {
 //Reset button
 document.querySelector('#btnReset').addEventListener('click', (e) => resetAll())
 document.querySelector('#btnNextRotation').addEventListener('click', (e) => resetAll())
+
+//Setup each rotation button to reset the boardf as well as force the rotation selected
+let rotationButtons = ['A', 'B', 'C', 'D']
+
+rotationButtons.forEach((letter) => {
+    document.querySelector('#forceRotation' + letter).addEventListener('click', (e) => resetAll(letter))
+})
 
 //Start it all off
 buildRotationGuidePage()

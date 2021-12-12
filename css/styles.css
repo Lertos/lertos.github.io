@@ -91,10 +91,16 @@ h3 {
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
-  }
+}
   
 .button:hover {
     opacity: 0.6
+}
+
+.buttonSmaller {
+    padding: 4px 8px;
+    font-size: 14px;
+    margin: 2px 2px 0px 2px;
 }
 
 .flex-container {
